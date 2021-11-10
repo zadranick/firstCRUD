@@ -2,7 +2,7 @@ package za.dranick.models;
 
 import javax.validation.constraints.*;
 
-public class HeroModel {
+public class Hero {
 
     private int id;
 
@@ -10,23 +10,23 @@ public class HeroModel {
     @Size(min = 2, max = 30, message = "Name should be between 2 and 30 characters")
     private String name;
 
-    @NotEmpty(message = "Name is shouldn't be empty")
+    @NotEmpty(message = "Align is shouldn't be empty")
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private String align;
 
-    @NotEmpty(message = "Name is shouldn't be empty")
+    @NotEmpty(message = "Hair is shouldn't be empty")
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private String hair;
 
-    @NotEmpty(message = "Name is shouldn't be empty")
+    @NotEmpty(message = "Gender is shouldn't be empty")
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private String gender;
 
-    @NotEmpty(message = "Name is shouldn't be empty")
+    @NotEmpty(message = "Appearances is shouldn't be empty")
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private int appearances;
 
-    @NotEmpty(message = "Name is shouldn't be empty")
+    @NotEmpty(message = "Universe is shouldn't be empty")
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private String universe;
 
@@ -34,7 +34,8 @@ public class HeroModel {
     @Positive(message = "Age should be greater than 0")
     private int year;
 
-    public HeroModel(String name, String align, String hair, String gender, int appearances, String universe, int year) {
+    public Hero(int id, String name, String align, String hair, String gender, int appearances, String universe, int year) {
+        this.id = id;
         this.name = name;
         this.align = align;
         this.hair = hair;
@@ -42,6 +43,10 @@ public class HeroModel {
         this.appearances = appearances;
         this.universe = universe;
         this.year = year;
+    }
+
+    public Hero() {
+
     }
 
     public int getId() {
@@ -102,5 +107,9 @@ public class HeroModel {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
