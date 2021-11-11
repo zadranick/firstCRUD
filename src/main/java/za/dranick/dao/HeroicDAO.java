@@ -28,6 +28,13 @@ public class HeroicDAO {
                 .stream().findAny().orElse(null);
     }
 
+    public void save(Hero hero) {
+        jdbcTemplate.update("INSERT INTO superheroes(name, align, hair, gender, appearances, year, universe)" +
+                        " VALUES(?, ?, ?, ?, ?, ?, ?)",
+                hero.getName(), hero.getAlign(),hero.getHair(), hero.getGender(),
+                hero.getAppearances(), hero.getYear(), hero.getUniverse());
+    }
+
 
 
 

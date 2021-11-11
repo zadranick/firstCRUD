@@ -10,6 +10,10 @@
     <a  th:href="@{/heroes/{id}(id=${hero.getId()})}"
             th:text="${hero.getName()}">user</a>
     <br>
+    <hr>
 </div>
+
+    <p>You can add new HERO here: </p>
+    <a href="/heroes/new"> Add HERO </a>
 </body>
 </html>

@@ -22,27 +22,29 @@ public class Hero {
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private String gender;
 
-    @NotEmpty(message = "Appearances is shouldn't be empty")
-    @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
+    @NotNull(message = "Appearances is shouldn't be empty")
+    @Positive(message = "Appearances should be greater than 0")
     private int appearances;
+
+    @NotNull(message = "Year is shouldn't be empty")
+
+    private int year;
 
     @NotEmpty(message = "Universe is shouldn't be empty")
     @Size(min = 2, max = 30, message = "align should be between 2 and 30 characters")
     private String universe;
 
-    @NotNull(message = "Year is shouldn't be empty")
-    @Positive(message = "Age should be greater than 0")
-    private int year;
 
-    public Hero(int id, String name, String align, String hair, String gender, int appearances, String universe, int year) {
+
+    public Hero(int id, String name, String align, String hair, String gender, int appearances, int year, String universe) {
         this.id = id;
         this.name = name;
         this.align = align;
         this.hair = hair;
         this.gender = gender;
         this.appearances = appearances;
-        this.universe = universe;
         this.year = year;
+        this.universe = universe;
     }
 
     public Hero() {
