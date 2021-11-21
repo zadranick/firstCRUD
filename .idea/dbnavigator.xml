@@ -28,13 +28,14 @@
       <connection connection-id="af92d7fb-2b01-4d88-98ec-6cd44e4ac339">
         <schema name="information_schema" object-types="table, view, function" />
         <schema name="pg_catalog" object-types="table, view, function" />
-        <schema name="public" object-types="table, view, sequence, function, index" />
+        <schema name="public" object-types="table, view, function, column" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="af92d7fb-2b01-4d88-98ec-6cd44e4ac339">
-      <console name="Connection" type="STANDARD" schema="information_schema" session="Main"><![CDATA[SELECT * FROM superheroes;]]></console>
+      <console name="Connection" type="STANDARD" schema="public" session="Main"><![CDATA[select * from superheroes where id>99;
+UPDATE superheroes SET name='Ivan2', align = 'bad' WHERE id=7285;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -65,7 +66,9 @@
     <filters />
   </component>
   <component name="DBNavigator.Project.ScriptExecutionManager" clear-outputs="true">
-    <recently-used-interfaces />
+    <recently-used-interfaces>
+      <mapping database-type="POSTGRES" interface-id="DEFAULT" />
+    </recently-used-interfaces>
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>

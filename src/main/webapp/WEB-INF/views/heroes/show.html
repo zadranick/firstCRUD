@@ -19,5 +19,10 @@
     <br>
     <p th:text = "${hero.getYear()}"> VALUE </p>
 
+    <a th:href = "@{/heroes/{id}/edit(id=${hero.getId()})}"> Edit </a>
+
+    <form th:method="DELETE" th:action="@{/heroes/{id}(id=${hero.getId()})}">
+        <input type="submit" value = "Delete"/>
+    </form>
 </body>
 </html>

@@ -44,10 +44,27 @@ public class HeroControllers {
 
         heroicDAO.save(hero);
         return "redirect:/heroes";
-
     }
 
+    @GetMapping("/{id}/edit")
+        public String edit(Model model, @PathVariable("id") int id) {
+            model.addAttribute("hero", heroicDAO.show(id));
+            return "heroes/edit";
+    }
 
+    @PatchMapping("/{id}")
+        public String update(@ModelAttribute("hero") @Valid Hero hero, BindingResult bindingResult,
+                             @PathVariable("id") int id) {
+        if (bindingResult.hasErrors())
+            return "heroes/edit";
 
-    
+        heroicDAO.update(id, hero);
+        return "redirect:/heroes";
+    }
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
+        heroicDAO.delete(id);
+        return "redirect:/heroes";
+    }
 }

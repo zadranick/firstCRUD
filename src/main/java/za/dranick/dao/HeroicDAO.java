@@ -35,7 +35,16 @@ public class HeroicDAO {
                 hero.getAppearances(), hero.getYear(), hero.getUniverse());
     }
 
+    public void update(int id, Hero updatedHero) {
+        jdbcTemplate.update("UPDATE superheroes SET name=?, align=?, hair=?, gender=?, appearances=?, " +
+                "year=?, universe=?  WHERE id=?",
+                updatedHero.getName(),updatedHero.getAlign(),updatedHero.getHair(), updatedHero.getGender(),
+                updatedHero.getAppearances(), updatedHero.getYear(), updatedHero.getUniverse(),  id);
+    }
 
+    public void delete(int id) {
+        jdbcTemplate.update("DELETE FROM superheroes WHERE id=?", id);
+    }
 
 
 }

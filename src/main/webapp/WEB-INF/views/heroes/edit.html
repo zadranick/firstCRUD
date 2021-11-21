@@ -2,43 +2,43 @@
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>New Hero</title>
+    <title>edit hero</title>
 </head>
 <body>
 
-<form th:method="POST" th:action="@{/heroes}" th:object="${hero}">
-    <label for="name" > Enter name </label>
-    <input type="text" th:field="*{name}" id="name">
+<form th:method="PATCH" th:action="@{/heroes/{id}(id = ${hero.getId()})}" th:object="${hero}">
+
+    <label for="name"> Enter name </label>
+    <input type="text" th:field="*{name}" id = name>
     <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"> Name error </div>
-        <br>
-    <label for="align" > Enter align </label>
-    <input type="text" th:field="*{align}" id="align">
+    <br>
+    <label for="align"> Enter align </label>
+    <input type="text" th:field="*{align}" id = align>
     <div style="color:red" th:if="${#fields.hasErrors('align')}" th:errors="*{align}"> Name error </div>
     <br>
     <label for="hair"> Enter hair </label>
-    <input type="text" th:field="*{hair}" id="hair">
+    <input type="text" th:field="*{hair}" id = hair>
     <div style="color:red" th:if="${#fields.hasErrors('hair')}" th:errors="*{hair}"> Name error </div>
-        <br>
-    <label for="hair"> Enter gender </label>
-    <input type="text" th:field="*{gender}" id="gender">
+    <br>
+    <label for="gender"> Enter gender </label>
+    <input type="text" th:field="*{gender}" id = gender>
     <div style="color:red" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"> Name error </div>
-        <br>
-    <label for="hair"> Enter appearances </label>
-    <input type="text" th:field="*{appearances}" id="appearances">
+    <br>
+    <label for="appearances"> Enter appearances </label>
+    <input type="text" th:field="*{appearances}" id = appearances>
     <div style="color:red" th:if="${#fields.hasErrors('appearances')}" th:errors="*{appearances}"> Name error </div>
-        <br>
-    <label for="hair"> Enter year </label>
-    <input type="text" th:field="*{year}" id="year">
+    <br>
+    <label for="year"> Enter year </label>
+    <input type="text" th:field="*{year}" id = year>
     <div style="color:red" th:if="${#fields.hasErrors('year')}" th:errors="*{year}"> Name error </div>
-        <br>
-    <label for="hair"> Enter universe </label>
-    <input type="text" th:field="*{universe}" id="universe">
+    <br>
+    <label for="universe"> Enter universe </label>
+    <input type="text" th:field="*{universe}" id = universe>
     <div style="color:red" th:if="${#fields.hasErrors('universe')}" th:errors="*{universe}"> Name error </div>
-        <hr>
 
-    <input type="submit" value="Create!">
+    <br>
+    <input type="submit" value="Update!">
 </form>
-
 
 </body>
 </html>
